@@ -1,0 +1,794 @@
+{
+  "info": {
+    "_postman_id": "d3107489-69ba-4a1f-a0d6-24cc8d8ec291",
+    "name": "Omada Odata",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12994329",
+    "_collection_link": "https://go.postman.co/collection/12994329-d3107489-69ba-4a1f-a0d6-24cc8d8ec291?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "List Identities",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/Identity?$top=10",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "Identity"
+          ],
+          "query": [
+            {
+              "key": "$filter",
+              "value": "Lastname eq 'Denver'",
+              "disabled": true
+            },
+            {
+              "key": "DeletedStatus",
+              "value": "NotDeleted",
+              "disabled": true
+            },
+            {
+              "key": "$select",
+              "value": "Id,UId,CreateTime,ChangeTime,DisplayName,IDENTITYID,FIRSTNAME,LASTNAME,EMAIL,JOBTITLE,VALIDFROM,VALIDTO,IDENTITYSTATUS,IDENTITYCATEGORY,IDENTITYTYPE,COUNTRY,COMPANY,OISID,ODWBUSIKEY",
+              "disabled": true
+            },
+            {
+              "key": "$top",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Identity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"IDENTITYID\": \"NIKREU1\",\r\n    \"FIRSTNAME\": \"Niklas\",\r\n    \"LASTNAME\": \"Reuter\",\r\n    \"EMAIL\": \"NIKREU@corporate.com\",\r\n    \"C_UPN\": \"NIKREU@5hmrzk.onmicrosoft.com\",\r\n    \"JOBTITLE_REF\": {\r\n        \"Uid\": \"7500ba7a-2c9d-41c3-b0a5-1b768db1092e\"\r\n    },\r\n    \"VALIDFROM\": \"2026-01-01T01:00:00+01:00\",\r\n    \"VALIDTO\": \"9999-12-31T01:00:00+01:00\",\r\n    \"OUREF\": {\r\n        \"Uid\": \"11fb8161-9674-4eb1-a2bc-acca5e6fbb30\"\r\n    },\r\n    \"COUNTRY\": {\r\n        \"Uid\": \"0dc86a1d-f15f-4f24-a030-ef88a2e2b3cb\"\r\n    },\r\n    \"COMPANY\": {\r\n        \"Uid\": \"9dd4e307-cbb7-4d4b-a28f-96333d47eac2\"\r\n    },\r\n    \"IDENTITYSTATUS\": {\r\n        \"UId\": \"a4ed4124-9b94-43a0-92c0-e71fba733049\"\r\n    },\r\n    \"IDENTITYCATEGORY\": {\r\n        \"UId\": \"ac0c67fc-5f47-4112-94e6-446bfb68326a\"\r\n    },\r\n    \"IDENTITYTYPE\": {\r\n        \"UId\": \"d13624f9-905d-4bc5-a6cc-2a4589c26be4\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/Identity",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "Identity"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Identity",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"LASTNAME\": \"Dorgut\",\r\n    \"EMAIL\": \"NICBEN@corporate.com\",\r\n    \"C_UPN\": \"NICBEN@5hmrzk.onmicrosoft.com\",\r\n    \"JOBTITLE_REF\": {\r\n        \"Uid\": \"2a1d32e9-7fca-4892-b566-25c6bcaaf317\"\r\n    },\r\n    \"OUREF\": {\r\n        \"Uid\": \"6af69d0b-dcbf-49bf-aa85-48319ea3ea1d\"\r\n    },\r\n    \"COUNTRY\": {\r\n        \"Uid\": \"0dc86a1d-f15f-4f24-a030-ef88a2e2b3cb\"\r\n    },\r\n    \"COMPANY\": {\r\n        \"Uid\": \"9dd4e307-cbb7-4d4b-a28f-96333d47eac2\"\r\n    },\r\n    \"VALIDTO\": \"9999-12-31T01:00:00+01:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/Identity(1009920)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "Identity(1009920)"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Identity",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"LASTNAME\": \"Dorgut\",\r\n    \"EMAIL\": \"PATDOR1@corporate.com\",\r\n    \"C_UPN\": \"PATDOR1@5hmrzk.onmicrosoft.com\",\r\n    \"JOBTITLE_REF\": {\r\n        \"Uid\": \"2a1d32e9-7fca-4892-b566-25c6bcaaf317\"\r\n    },\r\n    \"OUREF\": {\r\n        \"Uid\": \"6af69d0b-dcbf-49bf-aa85-48319ea3ea1d\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/Identity(1010063)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "Identity(1010063)"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Employments",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/EMPLOYMENT?$top=10",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "EMPLOYMENT"
+          ],
+          "query": [
+            {
+              "key": "$top",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Employment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"VALIDTO\": \"9999-12-31T00:00:00Z\",\r\n    \"VALIDFROM\": \"1997-01-01T00:00:00Z\",\r\n    \"EMPLOYMENTID\": \"NIKREU_GBG_AAL.P.NE\",\r\n    \"JOBTITLE_REF\": {\r\n        \"Uid\": \"2a1d32e9-7fca-4892-b566-25c6bcaaf317\"\r\n    },\r\n    \"C_EMP_PRIMARY\": true,\r\n    \"IDENTITYREF\": {\r\n        \"id\": 1010081\r\n    },\r\n    \"OUREF\": {\r\n        \"UId\": \"11fb8161-9674-4eb1-a2bc-acca5e6fbb30\"\r\n    },\r\n    \"C_STATUS\": {\r\n        \"uId\": \"ba9cf30c-4441-4d5a-ab59-a25b1db3b402\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/EMPLOYMENT",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "EMPLOYMENT"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Employment",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"VALIDTO\": \"9999-12-31T00:00:00Z\",\r\n    \"VALIDFROM\": \"1997-01-01T00:00:00Z\",\r\n    \"JOBTITLE_REF\": {\r\n        \"Uid\": \"2a1d32e9-7fca-4892-b566-25c6bcaaf317\"\r\n    },\r\n    \"C_EMP_PRIMARY\": false,\r\n    \"OUREF\": {\r\n        \"UId\": \"11fb8161-9674-4eb1-a2bc-acca5e6fbb30\"\r\n    },\r\n    \"C_STATUS\": {\r\n        \"uId\": \"ba9cf30c-4441-4d5a-ab59-a25b1db3b402\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/EMPLOYMENT(1010065)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "EMPLOYMENT(1010065)"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Employment",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/EMPLOYMENT(1005451)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "EMPLOYMENT(1005451)"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Organizational units",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/OrgUnit?$top=10",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "OrgUnit"
+          ],
+          "query": [
+            {
+              "key": "$Filter",
+              "value": "CreateTime ge {WatermarkDate}",
+              "disabled": true
+            },
+            {
+              "key": "$select",
+              "value": "id,uid,NAME,ODWBUSIKEY,OUID,PARENTOU,CreateTime,ChangeTime,DeleteTime",
+              "disabled": true
+            },
+            {
+              "key": "$top",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Organizational units",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"OUID\": \"MINE_OU\",\r\n    \"NAME\": \"Min Nye OU\",\r\n    \"OUTYPE\": {\r\n        \"UId\": \"a3dc19ec-13d4-45ee-89de-0d69db80104c\"\r\n    },\r\n    \"PARENTOU\": {\r\n        \"KeyValue\": \"GBG_LOSA.BUS\"\r\n    },\r\n    \"EXPLICITOWNER\": [\r\n        {\r\n            \"KeyValue\": \"MADFOR@CORPORATE.COM\",\r\n            \"KeyProperty\": \"EMAIL\"\r\n        }\r\n    ],\r\n    \"CONTEXTSTATUS\": {\r\n        \"Uid\": \"6c6b0054-94f2-4d23-9b15-791637fb28ba\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/OrgUnit",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "OrgUnit"
+          ],
+          "query": [
+            {
+              "key": "$select",
+              "value": "id,uid,NAME,ODWBUSIKEY,OUID,PARENTOU,CreateTime,ChangeTime,DeleteTime",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Organization units",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"NAME\": \"Min gamle OU\",\r\n    \"EXPLICITOWNER\": [\r\n        {\r\n            \"KeyValue\": \"madkri@corporate.com\",\r\n            \"KeyProperty\": \"EMAIL\"\r\n        }\r\n    ],\r\n    \"CONTEXTSTATUS\": {\r\n        \"Uid\": \"544bbcf7-0a79-4e19-86ee-80e86eec2a8e\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/OrgUnit(1010073)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "OrgUnit(1010073)"
+          ],
+          "query": [
+            {
+              "key": "$select",
+              "value": "id,uid,NAME,ODWBUSIKEY,OUID,PARENTOU,CreateTime,ChangeTime,DeleteTime",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Organization units",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/OrgUnit(1010074)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "OrgUnit(1010074)"
+          ],
+          "query": [
+            {
+              "key": "$select",
+              "value": "id,uid,NAME,ODWBUSIKEY,OUID,PARENTOU,CreateTime,ChangeTime,DeleteTime",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List JobTitles",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/JOB_TITLES?$top=10",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "JOB_TITLES"
+          ],
+          "query": [
+            {
+              "key": "$select",
+              "value": "id,uid,createtime,changetime,name,jobtitle_id,description,contextstatus",
+              "disabled": true
+            },
+            {
+              "key": "$top",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/User",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "User"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Batch Action",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"requests\": [\r\n        {\r\n            \"id\": \"1\",\r\n            \"method\": \"POST\",\r\n            \"atomicityGroup\": \"t1\",\r\n            \"url\": \"https://demo-dev.omada.cloud/OData/DataObjects/Orgunit\",\r\n            \"headers\": {\r\n                \"content-type\": \"application/json; odata.metadata=minimal; odata.streaming=true\",\r\n                \"odata-version\": \"4.0\"\r\n            },\r\n            \"body\": {\r\n                \"OUID\": \"MINE_OU\",\r\n                \"NAME\": \"Min Nye OU\",\r\n                \"OUTYPE\": {\r\n                    \"UId\": \"a3dc19ec-13d4-45ee-89de-0d69db80104c\"\r\n                },\r\n                \"PARENTOU\": {\r\n                    \"KeyValue\": \"GBG_LOSA.BUS\"\r\n                },\r\n                \"EXPLICITOWNER\": [\r\n                    {\r\n                        \"KeyValue\": \"MADFOR@CORPORATE.COM\",\r\n                        \"KeyProperty\": \"EMAIL\"\r\n                    }\r\n                ],\r\n                \"CONTEXTSTATUS\": {\r\n                    \"Uid\": \"6c6b0054-94f2-4d23-9b15-791637fb28ba\"\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"2\",\r\n            \"method\": \"POST\",\r\n            \"atomicityGroup\": \"t1\",\r\n            \"url\": \"https://demo-dev.omada.cloud/OData/DataObjects/Identity\",\r\n            \"headers\": {\r\n                \"content-type\": \"application/json; odata.metadata=minimal; odata.streaming=true\",\r\n                \"odata-version\": \"4.0\"\r\n            },\r\n            \"body\": {\r\n                \"@odata.type\": \"#OIS.Identity\",\r\n                \"IDENTITYID\": \"MORTIL\",\r\n                \"FIRSTNAME\": \"Morten\",\r\n                \"LASTNAME\": \"Tiller\",\r\n                \"EMAIL\": \"MORTIL@corporate.com\",\r\n                \"C_UPN\": \"MORTIL@5hmrzk.onmicrosoft.com\",\r\n                \"JOBTITLE_REF\": {\r\n                    \"Uid\": \"7500ba7a-2c9d-41c3-b0a5-1b768db1092e\"\r\n                },\r\n                \"VALIDFROM\": \"2026-01-01T01:00:00+01:00\",\r\n                \"VALIDTO\": \"9999-12-31T01:00:00+01:00\",\r\n                \"OUREF\": {\r\n                    \"KeyValue\": \"MINE_OU\",\r\n                    \"KeyProperty\": \"OUID\"\r\n                },\r\n                \"COUNTRY\": {\r\n                    \"Uid\": \"0dc86a1d-f15f-4f24-a030-ef88a2e2b3cb\"\r\n                },\r\n                \"COMPANY\": {\r\n                    \"Uid\": \"9dd4e307-cbb7-4d4b-a28f-96333d47eac2\"\r\n                },\r\n                \"IDENTITYSTATUS\": {\r\n                    \"UId\": \"a4ed4124-9b94-43a0-92c0-e71fba733049\"\r\n                },\r\n                \"IDENTITYCATEGORY\": {\r\n                    \"UId\": \"ac0c67fc-5f47-4112-94e6-446bfb68326a\"\r\n                },\r\n                \"IDENTITYTYPE\": {\r\n                    \"UId\": \"d13624f9-905d-4bc5-a6cc-2a4589c26be4\"\r\n                }\r\n            },\r\n            \"dependsOn\": [\r\n                \"t1\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"3\",\r\n            \"method\": \"POST\",\r\n            \"atomicityGroup\": \"t3\",\r\n            \"url\": \"https://demo-dev.omada.cloud/OData/DataObjects/EMPLOYMENT\",\r\n            \"headers\": {\r\n                \"content-type\": \"application/json; odata.metadata=minimal; odata.streaming=true\",\r\n                \"odata-version\": \"4.0\"\r\n            },\r\n            \"body\": {\r\n                \"@odata.type\": \"#OIS.Employment\",\r\n                \"VALIDTO\": \"9999-12-31T00:00:00Z\",\r\n                \"VALIDFROM\": \"1997-01-01T00:00:00Z\",\r\n                \"EMPLOYMENTID\": \"MORTIL_GBG_AAL.P.NE1\",\r\n                \"JOBTITLE_REF\": {\r\n                    \"Uid\": \"2a1d32e9-7fca-4892-b566-25c6bcaaf317\"\r\n                },\r\n                \"C_EMP_PRIMARY\": true,\r\n                \"IDENTITYREF\": {\r\n                    \"KeyValue\": \"MORTIL\"\r\n                },\r\n                \"OUREF\": {\r\n                    \"KeyValue\": \"MINE_OU\",\r\n                    \"KeyProperty\": \"OUID\"\r\n                },\r\n                \"C_STATUS\": {\r\n                    \"uId\": \"ba9cf30c-4441-4d5a-ab59-a25b1db3b402\"\r\n                }\r\n            },\r\n            \"dependsOn\": [\r\n                \"t1\",\r\n                \"t2\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/$batch",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "$batch"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Metadata",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/DataObjects/$metadata",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "DataObjects",
+            "$metadata"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Definition of Data Object type",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "https://demo-dev.omada.cloud/OData/Builtin/DataObjectTypes(950)?$expand=PropertyBindings($expand=Property)",
+          "protocol": "https",
+          "host": [
+            "demo-dev",
+            "omada",
+            "cloud"
+          ],
+          "path": [
+            "OData",
+            "Builtin",
+            "DataObjectTypes(950)"
+          ],
+          "query": [
+            {
+              "key": "$expand",
+              "value": "PropertyBindings($expand=Property)"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "clientId",
+        "value": "{{clientid}}",
+        "type": "string"
+      },
+      {
+        "key": "headerPrefix",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{secret}}",
+        "type": "string"
+      },
+      {
+        "key": "scope",
+        "value": "https://demo-dev.omada.cloud/.default",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      },
+      {
+        "key": "accessToken",
+        "value": "..---",
+        "type": "string"
+      },
+      {
+        "key": "token_id",
+        "value": "22443624-d4ac-40c8-855d-214ed93192b7",
+        "type": "string"
+      },
+      {
+        "key": "id",
+        "value": "collection/d3107489-69ba-4a1f-a0d6-24cc8d8ec291/13a7b4f4-d5c4-478f-b551-a4a9fed351b2",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "secret",
+      "secret": true
+    },
+    {
+      "key": "clientid",
+      "secret": true
+    },
+    {
+      "key": "tenantid",
+      "value": ""
+    }
+  ]
+}
